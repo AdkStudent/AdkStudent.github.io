@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMindGuard - Portal del Evaluador</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!-- Navbar brand with resized image -->
+        <a class="navbar-brand" href="evaluador.html">
+            <img src="logov2-removebg.png" class="img-fluid logo" alt="Responsive image">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Container wrapper with margin -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    
+            <!-- Icons and Chatbot button -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item me-3 me-lg-0 position-relative">
+                    <a class="nav-link text-white" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell mx-1"></i> Notificaciones
+                        <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">8</span>
+                    </a>
+                    <!-- Dropdown menu for notifications -->
+                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="notificationsDropdown">
+                        <h6 class="dropdown-header">Notificaciones</h6>
+                        <!-- Notificación 1 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Próximo Test</h6>
+                                <p class="notification-description">Test de Salud Mental</p>
+                                <small class="notification-time">Enviado el 25 de marzo a las 10:30 AM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 2 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Charla Psicológica</h6>
+                                <p class="notification-description">Se envía la fecha y hora de su reunión...</p>
+                                <small class="notification-time">Enviado el 26 de marzo a las 2:00 PM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 3 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Resultados de Charla</h6>
+                                <p class="notification-description">Se envía las indicaciones recibidas en ...</p>
+                                <small class="notification-time">Enviado el 27 de marzo a las 9:45 AM</small>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <a class="nav-iteam nav-link text-white" href="editarrecurso.html"><i class="fas fa-plus mx-1"></i> Añadir Recursos</a>
+                </li>
+                <a class="nav-iteam nav-link text-white" href="citas.html"><i class="far fa-calendar-alt"></i> Visualizar Citas</a>
+
+            </ul>
+    
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user mx-1"></i> Perfil
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">Editar Cuenta</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Más información</a>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper with margin -->
+    </nav>
+    
+    
+    
+    <!-- Contenido principal -->
+    <main class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Agrega el buscador -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i>Buscar</button>
+                    </div>
+                </div>
+                
+                <!-- Agrega los filtros -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fechaFiltro">Filtrar por fecha de entrega:</label>
+                        <select class="form-control" id="fechaFiltro">
+                            <option>Mayor a menor</option>
+                            <option>Menor a mayor</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="estadoFiltro">Filtrar por estado:</label>
+                        <select class="form-control" id="estadoFiltro">
+                            <option>Pendiente</option>
+                            <option>En progreso</option>
+                            <option>Completado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tabla de Bootstrap -->
+                <table class="table table-bordered table-striped">
+                    <thead class="bg-warning">
+                        <tr>
+                            <th>Nombre del Alumno</th>
+                            <th>Facultad</th>
+                            <th>Carrera</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha de entrega</th>
+                            <th>Estado</th>
+                            <th>Resultados</th>
+                            <th>Solicitar Cita</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí debes agregar filas con la información de tu base de datos -->
+                        <tr>
+                            <td>Juan Pérez</td>
+                            <td>Facultad de Ingeniería Civil</td>
+                            <td>Ingeniería Civil</td>
+                            <td>01/04/2023</td>
+                            <td>15/04/2023</td>
+                            <td>Completado</td>
+                            <td><i class="fa-solid fa-file-pdf"></i><a href="INFORME MÉDICO PSICOLÓGICO.pdf">Ver resultados</a></td>
+                            <td><a class="btn disabled text-primary" href="#">Cita Registrada</a></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Gómez</td>
+                            <td>Facultad de Insustrial e Ingeniería de Sistemas</td>
+                            <td>Ingeniería de Sistemas</td>
+                            <td>05/04/2023</td>
+                            <td></td>
+                            <td>En progreso</td>
+                            <td><i class="fa-solid fa-file-pdf"></i><a href="INFORME MÉDICO PSICOLÓGICO.pdf">Ver resultados</a></td>
+                            <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" disabled>Enviar Cita</button></td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Rodríguez</td>
+                            <td>Facultad de Arquitectura, Urbanismo y Arte</td>
+                            <td>Arquitectura</td>
+                            <td>10/04/2023</td>
+                            <td>25/04/2023</td>
+                            <td>Completado</td>
+                            <td><i class="fa-solid fa-file-pdf"></i><a href="#">Ver resultados</a></td>
+                            <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Enviar Cita</button></td>
+                        </tr>
+                        <tr>
+                            <td>Ana López</td>
+                            <td>Facultad de Ciencias</td>
+                            <td>Matemáticas</td>
+                            <td class="text-danger">No inició</td>
+                            <td> </td>
+                            <td>Pendiente</td>
+                            <td></a></td>
+                            <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" disabled>Enviar Cita</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pablo Ruiz</td>
+                            <td>Facultad de Ciencias</td>
+                            <td>Matemáticas</td>
+                            <td>08/04/2023</td>
+                            <td> </td>
+                            <td>En progreso</td>
+                            <td><i class="fa-solid fa-file-pdf"></i><a href="#">Ver resultados</a></td>
+                            <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" disabled>Enviar Cita</button></td>
+                        </tr>
+                        <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                </table>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="citaModalLabel">Nueva Cita de Salud Mental</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    
+                                    <div class="form-group">
+                                        <label for="fecha-cita" class="col-form-label">Fecha de la Cita:</label>
+                                        <input type="date" class="form-control" id="fecha-cita" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hora-cita" class="col-form-label">Hora de la Cita:</label>
+                                        <input type="time" class="form-control" id="hora-cita" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="observaciones" class="col-form-label">Observaciones:</label>
+                                        <textarea class="form-control" id="observaciones" rows="3" required></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Guardar Cita</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Paginación y dropdown para número de filas -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <!-- Paginación -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><span class="page-link">...</span></li>
+                    <!-- Páginas adicionales aquí -->
+                    <li class="page-item"><span class="page-link">...</span></li>
+                    <li class="page-item"><a class="page-link" href="#">78</a></li>
+                    <li class="page-item"><a class="page-link" href="#">79</a></li>
+                    <li class="page-item"><a class="page-link" href="#">80</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Dropdown para seleccionar número de filas -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="tabladesplegable" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    5 filas
+                </button>
+                <div class="dropdown-menu" aria-labelledby="tabladesplegable">
+                    <a class="dropdown-item" href="#">25 filas</a>
+                    <a class="dropdown-item" href="#">50 filas</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white p-4 text-center">
+        <p>Instituto Nacional de Salud Mental “Honorio Delgado” | Organización Panamericana de la Salud</p>
+        <img src="wcag-logo.png" alt="WCAG 2.1" class="img-fluid logo">
+        <p>Contacto: desarrolladores@unimindguard.com</p>
+    </footer>
+
+    <!-- Agrega los enlaces a Bootstrap JS y Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/178697a4a9.js" crossorigin="anonymous"></script>
+</body>
+</html>

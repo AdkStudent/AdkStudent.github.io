@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>UniMindGuard - Chatbot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        #chat-container {
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            height: 500px; /* Ajusta el valor según tus necesidades */
+            overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #chat-messages {
+            padding: 20px;
+            flex-grow: 1; /* Permitirá que este contenedor crezca para ocupar el espacio restante */
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .message-card {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            max-width: 65%; /* Ajusta el ancho máximo según tus preferencias */
+            word-wrap: break-word; /* Rompe las palabras largas si no caben en una línea */
+        }
+        
+        #user-input {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        #send-button {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .user-message {
+            text-align: right;
+            color: #007bff;
+            background-color: #e0f7fa;
+            margin-left: auto;
+        }
+        
+        .bot-message {
+            text-align: left;
+            color: #000;
+            background-color: #f5f5f5;
+        }
+            
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-warning navbar-dark">
+        <!-- Navbar brand with resized image -->
+        <a class="navbar-brand" href="index.html">
+            <img src="logov2-removebg.png" class="img-fluid logo" alt="Responsive image" width="200" height="65">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Container wrapper with margin -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    
+            <!-- Icons and Chatbot button -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item me-3 me-lg-0 position-relative">
+                    <a class="nav-link text-white" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell mx-1"></i> Notificaciones
+                        <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">3</span>
+                    </a>
+                    <!-- Dropdown menu for notifications -->
+                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="notificationsDropdown">
+                        <h6 class="dropdown-header">Notificaciones</h6>
+                        <!-- Notificación 1 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Próximo Test</h6>
+                                <p class="notification-description">Test de Salud Mental</p>
+                                <small class="notification-time">Enviado el 25 de marzo a las 10:30 AM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 2 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Charla Psicológica</h6>
+                                <p class="notification-description">Se envía la fecha y hora de su reunión...</p>
+                                <small class="notification-time">Enviado el 26 de marzo a las 2:00 PM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 3 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Resultados de Charla</h6>
+                                <p class="notification-description">Se envia las indicaciones recibidas en ...</p>
+                                <small class="notification-time">Enviado el 27 de marzo a las 9:45 AM</small>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white" href="evaluaciones.html"><i class="fas fa-calendar-alt mx-1"></i> Evaluaciones Programadas</a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white" href="chatbot.html"><i class="fas fa-comment mx-1"></i> Chatbot</a>
+                </li>
+            </ul>
+    
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user mx-1"></i> Perfil
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">Editar Cuenta</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Más información</a>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper with margin -->
+    </nav>
+
+    <div id="chat-container">
+        <div id="chat-messages">
+            <div class="message-card bot-message">Hola, soy tu Chatbot de Salud Mental. ¿Cómo puedo ayudarte hoy?</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+        <button id="send-button" onclick="sendMessage()">Enviar</button>
+    </div>
+    
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white p-4 text-center">
+        <p>Instituto Nacional de Salud Mental “Honorio Delgado” | Organización Panamericana de la Salud</p>
+        <img src="wcag-logo.png" alt="WCAG 2.1" class="img-fluid logo">
+        <p>Contacto: desarrolladores@unimindguard.com</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/178697a4a9.js" crossorigin="anonymous"></script>
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById('user-input').value;
+        
+            if (userMessage.trim() !== "") {
+                appendMessage('user', userMessage);
+        
+                // Simula una respuesta del chatbot después de 1 segundo
+                setTimeout(function () {
+                    var botResponse = getBotResponse(userMessage);
+                    appendMessage('bot', botResponse);
+                }, 1000);
+        
+                document.getElementById('user-input').value = '';
+            }
+        }
+        
+        function getBotResponse(userMessage) {
+            // Hacer coincidir la consulta del usuario y proporcionar respuestas personalizadas
+            if (userMessage.toLowerCase().includes("horarios para citas")) {
+                return "Tienes una cita establecida para la siguiente semana el viernes a las 3:40 pm";
+            } else if (userMessage.toLowerCase().includes("problemas con mis compañeros")) {
+                return "Hay algunas cosas que puedes hacer para lidiar con las burlas:<br><br><li> No les des importancia. Si no les das importancia a las burlas, perderán su poder.<br><li> Ignora a los que se burlan. No les des la satisfacción de ver que te afectan.<br><li> Si las burlas son constantes o te hacen sentir mal, puedes hablar con nuestros ayudantes en psicología, están disponibles jueves y viernes de 10 am hasta las 6 pm.<br><br>Le recomendamos que tenga en cuenta la última alternativa si es algo que está afectando su vida personal.";
+            } else if (userMessage.toLowerCase().includes("cuidar mi salud mental")) {
+                return "Hay muchas cosas que puedes hacer para cuidar tu salud mental, incluyendo:<br><br><li> Mantenerte activo físicamente<br><li> Comer una dieta saludable<br><li> Dormir lo suficiente<br><br>Le dejo algunos recursos que le pueden ser de utilidad:<br><a href='https://unimindguard/salud-mental/topics/mental-health-basics/' target='_blank'>Mental Health Basics</a>";
+            } else {
+                return "No entendí completamente tu pregunta. ¿Puedes proporcionar más detalles?";
+            }
+        }
+             
+    
+        function appendMessage(sender, message) {
+            var chatMessages = document.getElementById('chat-messages');
+            var messageDiv = document.createElement('div');
+            messageDiv.className = 'message-card ' + (sender === 'user' ? 'user-message' : 'bot-message');
+            messageDiv.innerHTML = message; // Cambiar textContent por innerHTML
+            chatMessages.appendChild(messageDiv);
+        
+            // Desplázate hacia abajo para mostrar el último mensaje
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+    </script>
+    
+
+</body>
+</html>

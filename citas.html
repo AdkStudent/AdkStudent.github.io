@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMindGuard - Visualizar Citas</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!-- Navbar brand with resized image -->
+        <a class="navbar-brand" href="evaluador.html">
+            <img src="logov2-removebg.png" class="img-fluid logo" alt="Responsive image">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Container wrapper with margin -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    
+            <!-- Icons and Chatbot button -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item me-3 me-lg-0 position-relative">
+                    <a class="nav-link text-white" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell mx-1"></i> Notificaciones
+                        <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">8</span>
+                    </a>
+                    <!-- Dropdown menu for notifications -->
+                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="notificationsDropdown">
+                        <h6 class="dropdown-header">Notificaciones</h6>
+                        <!-- Notificación 1 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Próximo Test</h6>
+                                <p class="notification-description">Test de Salud Mental</p>
+                                <small class="notification-time">Enviado el 25 de marzo a las 10:30 AM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 2 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Charla Psicológica</h6>
+                                <p class="notification-description">Se envía la fecha y hora de su reunión...</p>
+                                <small class="notification-time">Enviado el 26 de marzo a las 2:00 PM</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!-- Notificación 3 -->
+                        <a class="dropdown-item" href="#">
+                            <div class="notification-info">
+                                <h6 class="notification-title">Resultados de Charla</h6>
+                                <p class="notification-description">Se envía las indicaciones recibidas en ...</p>
+                                <small class="notification-time">Enviado el 27 de marzo a las 9:45 AM</small>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <a class="nav-iteam nav-link text-white" href="editarrecurso.html"><i class="fas fa-plus mx-1"></i> Añadir Recursos</a>
+                </li>
+                <a class="nav-iteam nav-link text-white" href="citas.html"><i class="far fa-calendar-alt"></i> Visualizar Citas</a>
+
+            </ul>
+    
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user mx-1"></i> Perfil
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">Editar Cuenta</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Más información</a>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper with margin -->
+    </nav>
+    
+    <div class="container mt-4">
+        <h2>Visualización de Citas</h2>
+        <hr class="mt-2 mb-3"/>
+
+        <table class="table table-bordered table-striped">
+            <thead class="bg-warning">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Código</th>
+                    <th>Estado</th>
+                    <th>Trastorno detectado</th>
+                    <th>Cita Programada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas de ejemplo -->
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>20190243D</td>
+                    <td>Aceptó</td>
+                    <td>Ansiedad</td>
+                    <td>10/05/2023 3:00 PM</td>
+                </tr>
+                <!-- Ejemplo 1 -->
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>20120010B</td>
+                    <td>Aceptó</td>
+                    <td>Depresión</td>
+                    <td>12/05/2023 2:30 PM</td>
+                </tr>
+
+                <!-- Ejemplo 2 -->
+                <tr>
+                    <td>Maria Gómez</td>
+                    <td>20150250E</td>
+                    <td>No leido</td>
+                    <td>Depresión</td>
+                    <td></td>
+                </tr>
+
+                <!-- Ejemplo 3 -->
+                <tr>
+                    <td>Luis Hernández</td>
+                    <td>20182000H</td>
+                    <td>Aceptó</td>
+                    <td>Estrés</td>
+                    <td>08/05/2023 4:15 PM</td>
+                </tr>
+
+                <!-- Ejemplo 4 -->
+                <tr>
+                    <td>Ana Rodríguez</td>
+                    <td>20200350C</td>
+                    <td>Aceptó</td>
+                    <td>Trastorno de ansiedad social</td>
+                    <td>14/05/2023 10:00 AM</td>
+                </tr>
+
+                <!-- Ejemplo 5 -->
+                <tr>
+                    <td>Carlos Sánchez</td>
+                    <td>20230400I</td>
+                    <td>No leido</td>
+                    <td>Trastorno de Deficit de Atencion</td>
+                    <td></td>
+                </tr>
+
+                <!-- Otras filas... -->
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <!-- Paginación -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><span class="page-link">...</span></li>
+                    <!-- Páginas adicionales aquí -->
+                    <li class="page-item"><span class="page-link">...</span></li>
+                    <li class="page-item"><a class="page-link" href="#">78</a></li>
+                    <li class="page-item"><a class="page-link" href="#">79</a></li>
+                    <li class="page-item"><a class="page-link" href="#">80</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Dropdown para seleccionar número de filas -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="tabladesplegable" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    5 filas
+                </button>
+                <div class="dropdown-menu" aria-labelledby="tabladesplegable">
+                    <a class="dropdown-item" href="#">25 filas</a>
+                    <a class="dropdown-item" href="#">50 filas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white p-4 text-center">
+        <p>Instituto Nacional de Salud Mental “Honorio Delgado” | Organización Panamericana de la Salud</p>
+        <img src="wcag-logo.png" alt="WCAG 2.1" class="img-fluid logo">
+        <p>Contacto: desarrolladores@unimindguard.com</p>
+    </footer>
+
+    <!-- Agrega los enlaces a Bootstrap JS y Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/178697a4a9.js" crossorigin="anonymous"></script>
+</body>
+</html>
